@@ -3,4 +3,6 @@ numpy
 flask
 seaborn 
 scikit-learn
--e .
+catboost
+xgboost
+#-e .
