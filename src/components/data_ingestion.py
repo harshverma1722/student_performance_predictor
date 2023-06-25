@@ -9,7 +9,8 @@ from dataclasses import dataclass
 
 from src.components.data_transformation import DataTransformation
 from src.components.data_transformation import DataTransformationConfig
-
+from src.components.model_trainer import ModelTrainer
+from src.components.model_trainer import ModelTrainerConfig
 @dataclass ## dataclasses are used to create the class variable 
 class DataIngestionConfig: ## all the kind of inputs needed for the data ingestion component i will give it through the data ingestion congfig 
     train_data_path : str= os.path.join('artifacts','train.csv')
@@ -47,6 +48,9 @@ if __name__ == "__main__":
     train_data,test_data= obj.initiate_data_ingestion()
     data_transformation=DataTransformation()
     train_arr,test_arr,_=data_transformation.initiate_data_transformation(train_data,test_data)
+
+    Modeltrainer = ModelTrainer()
+    print(Modeltrainer.initiate_model_trainer(train_arr,test_arr))
 
 
 
